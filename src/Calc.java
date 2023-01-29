@@ -11,7 +11,7 @@ public class Calc {
 
     public static String calc(String input) {
         String[] strings = input.split(" ");
-        if ((strings.length <= 1 || strings.length > 3) || (isDoubleOrAlphabetic(strings[0]) || isDoubleOrAlphabetic(strings[2])))
+        if ((strings.length <= 1 || strings.length > 3) || (isDouble(strings[0]) || isDouble(strings[2])))
             throw new ArithmeticException("the format of the mathematical operation does not satisfy the task");
         String action = strings[1];
 
@@ -83,8 +83,8 @@ public class Calc {
         return true;
     }
 
-    private static boolean isDoubleOrAlphabetic(String str) {
-        return str.contains(".") || str.matches("^[a-zA-Z]*$");
+    private static boolean isDouble(String str) {
+        return str.contains(".");
     }
 
     private static int innerCalc(String action, int a, int b) {
